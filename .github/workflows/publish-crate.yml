@@ -15,6 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y -qq pkg-config libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
     - name: build
       run: cargo build --verbose
     - name: test
